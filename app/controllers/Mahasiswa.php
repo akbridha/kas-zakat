@@ -46,10 +46,7 @@ class Mahasiswa extends Controller{
     public function hapus($id)
     {
 
-   
-        // var_dump($_POST);
-       
-
+    
 
 
         if ( $this->model('Mahasiswa_model')->hapusDataMahasiswa($id) > 0){
