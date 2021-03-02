@@ -4,28 +4,17 @@ class Mahasiswa extends Controller{
     public function index()
 
     {
-
-
         $data['judul'] = "Mahasiswa";
         $data['mhs']= $this->model('Mahasiswa_model')->getMahasiswa();
 
         $this->view('template/header',$data);
         $this->view('mahasiswa/index',$data);
         $this->view('template/footer');
-
-
-
-
     }
 
 
     public function tambah()
     {
-
-   
-        // var_dump($_POST);
-       
-
 
 
         if ( $this->model('Mahasiswa_model')->tambahDataMahasiswa($_POST) > 0){
