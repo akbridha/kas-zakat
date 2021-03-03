@@ -18,7 +18,8 @@
             <?= $mhs['nama'];?>
             <a href="<?=BASEURL;?>/mahasiswa/hapus/<?=$mhs['id'];?>" class="badge badge-danger float-right ml-2"
             onclick="return confirm('yakin');">hapus</a>
-            <a href="<?=BASEURL;?>/mahasiswa/ubah/<?=$mhs['id'];?>" class="badge badge-success float-right ml-2 tampilModalUbah"data-toggle="modal" data-target="#exampleModalLong">ubah</a>
+            
+            <a href="<?=BASEURL;?>/mahasiswa/ubah/<?=$mhs['id'];?>" class="badge badge-success float-right  ml-2 tampilModalUbah" data-toggle="modal"  data-target="#exampleModalLong" data-id="<?=$mhs['id'];?>">ubah</a>
             <a href="<?=BASEURL;?>/mahasiswa/detail/<?=$mhs['id'];?>" class="badge badge-primary float-right">detail</a>
             
             </li>
@@ -58,6 +59,7 @@
         <!-- modal body -->
         <div class="modal-body">
                 <form action="<?= BASEURL; ?>/mahasiswa/tambah" method="post">
+                <input type="hidden" name="id" id="id">
                 <div class="form-group">
                   <label for="exampleFormControlInput1">Nama</label>
                   <input type="text" class="form-control" id="nama" name ="nama">

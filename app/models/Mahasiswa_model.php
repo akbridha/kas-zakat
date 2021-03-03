@@ -17,36 +17,6 @@ class Mahasiswa_model{
     
 
 
-    // private $mhs= [
-    //     [
-    //         "nama"=>"arin",
-    //         "NIM"=>"A1710",
-    //         "email"=>"rin@rocketmail.com",
-    //         "jurusan"=>"busana"
-    //     ],
-    //     [
-    //         "nama"=>"hendara",
-    //         "NIM"=>"B1751",
-    //         "email"=>"nadar@yahoo.co.id",
-    //         "jurusan"=>"Mesin"
-    //     ],
-    //     [
-    //         "nama"=>"Cahyo",
-    //         "NIM"=>"H1733",
-    //         "email"=>"nurisCahaya@sun.com",
-    //         "jurusan"=>"pertanian"
-    //     ],
-    //     [
-    //         "nama"=>"Asep rahadi",
-    //         "NIM"=>"D1780",
-    //         "email"=>"aingmaung@gmail.com",
-    //         "jurusan"=>"Listrik"
-    //      ]
-    // ];
-
-
-
-
 
 
     private $info = ' "view dan model statement deklarasinya terletak pada controller core"';
@@ -90,6 +60,12 @@ class Mahasiswa_model{
             
     }
 
+    public function getMahasiswaById($id){
+        $this->db->query('SELECT * FROM ' . $this->table . ' WHERE id=:id');
+        $this->db->bind('id', $id);
+        return $this->db->single();
+    }
+
     public function hapusDataMahasiswa($id)
     {
 
@@ -103,5 +79,28 @@ class Mahasiswa_model{
 
             return $this->db->rowCount();
             
+    }
+
+    public function ubahDataMahasiswa($data){
+        $query = "UPDATE mahasiswa
+        SET
+        nama = :nama,
+        NIM = :NIM,
+        email = :email,
+        jurusan = :jurusan
+        WHERE id = :id";
+
+        $this->db->query($query);
+        $this->db->bind('nama', $data['nama']);
+        $this->db->bind('NIM', $data['NIM']);
+        $this->db->bind('email', $data['email']);
+        $this->db->bind('jurusan', $data['jurusan']);
+        $this->db->bind('id', $data['id']);
+
+
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
     }
 }

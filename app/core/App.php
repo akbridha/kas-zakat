@@ -44,11 +44,9 @@ protected $params = array('kosong');
         }
 
 
-        echo '[method construct() pada class app] ini var_dump => ';
-        var_dump ([$this->controller,$this->method], $this->params);
-
-        echo'</br>';
-        echo'</br>';
+        // echo '[method construct() pada class app] ini var_dump => ';
+        // var_dump ([$this->controller,$this->method], $this->params);
+        // echo'</br>';
       
         //eksekusi dari hasil yg diambil dari URL
         call_user_func_array([$this->controller, $this->method], $this->params);
@@ -66,9 +64,9 @@ protected $params = array('kosong');
             $url = rtrim($_GET['url'],'/'); 
             $url = filter_var($url,FILTER_SANITIZE_URL); 
             $url = explode('/', $url);  
-            echo '[method parseURL() di class app.php] ';  
-            var_dump($url); 
-            echo '</br>';
+            // echo '[method parseURL() di class app.php] ';  
+            // var_dump($url); 
+            // echo '</br>';
             return $url;
             }else
             {
