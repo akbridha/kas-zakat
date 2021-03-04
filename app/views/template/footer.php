@@ -4,7 +4,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 <script src="<?=BASEURL; ?>/js/script.js"></script>
 <div class="alert alert-dark mt-4" role="alert">
-<h1>Ini footer</h1>
+<h1>Footer</h1>
 
 </div>
 </body>

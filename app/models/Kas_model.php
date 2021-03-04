@@ -1,12 +1,11 @@
 <?php
-
-class Mahasiswa_model{
+class Kas_model {
 
 
     private $dbDriver;
     private $stmt;
 
-    private $table = 'mahasiswa';
+    private $table = 'kas';
     private $db;
 
     public function __construct()
@@ -21,7 +20,7 @@ class Mahasiswa_model{
 
     private $info = ' "view dan model statement deklarasinya terletak pada controller core"';
     
-    public function getMahasiswa()
+    public function ambilKasSemua()
     {
         // $perintahquery = 'SELECT *FROM mahasiswa';
 
@@ -39,41 +38,43 @@ class Mahasiswa_model{
 
 
 
-    public function tambahDataMahasiswa($data)
+    public function tambahDataKas($data)
     {
 
-        $query = "INSERT INTO mahasiswa
+        $query = "INSERT INTO kas
             VALUES
-            ('', :nama, :NIM, :email, :jurusan)";
+            ('', :info, :jenis, :nominal, '', :keterangan, '', '')";
 
             $this->db->query($query);
-            $this->db->bind('nama', $data['nama']);
-            $this->db->bind('NIM', $data['NIM']);
-            $this->db->bind('email', $data['email']);
-            $this->db->bind('jurusan', $data['jurusan']);
+            $this->db->bind('info', $data['info']);
+            $this->db->bind('jenis', $data['jenis']);
+            $this->db->bind('nominal', $data['nominal']);
+            $this->db->bind('keterangan', $data['keterangan']);
 
 
-            var_dump($query);
+           
+       
             $this->db->execute();
 
             return $this->db->rowCount();
             
     }
 
-    public function getMahasiswaById($id){
+    public function getKasById($id){
         $this->db->query('SELECT * FROM ' . $this->table . ' WHERE id=:id');
         $this->db->bind('id', $id);
         return $this->db->single();
     }
 
-    public function hapusDataMahasiswa($id)
+    public function hapusDataKas($id)
     {
 
-        $query = "DELETE FROM mahasiswa WHERE id = :id";
+        $query = "DELETE FROM kas WHERE id = :id";
 
 
             $this->db->query($query);
             $this->db->bind('id', $id);
+            var_dump($query);
             $this->db->execute();
 
             return $this->db->rowCount();
