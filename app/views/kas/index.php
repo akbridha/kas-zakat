@@ -27,9 +27,11 @@
   <div class="row mb-4">
     <div class="col-lg-6">
       <!-- Button trigger modal -->
-      <button type="button" class="btn btn-primary tombolTambahData" data-toggle="modal" data-target="#modalKas">
+      <button type="button" class="btn btn-primary tombolTambahKas" data-toggle="modal" data-target="#modalKas">
         Tambah Data
       </button>
+      <a href="<?=BASEURL;?>/kas/tampilKasByJenis/Masuk" class="btn btn-info" role="button"> Kas Masuk</a>
+      <a href="<?=BASEURL;?>/kas/tampilKasByJenis/Keluar" class="btn btn-info" role="button"> Kas Keluar</a>
     </div>
   </div>
   
@@ -42,7 +44,7 @@
           <li class="list-group-item ">
             <?= $kas['info'];?>
             <a href="<?=BASEURL;?>/kas/hapus/<?=$kas['id'];?>" class="badge badge-danger float-right ml-2"onclick="return confirm('yakin');">hapus</a>
-            <a href="<?=BASEURL;?>/kas/ubah/<?=$kas['id'];?>" class="badge badge-success float-right  ml-2 tampilModalUbah" data-toggle="modal"  data-target="#modalKas" data-id="<?=$kas['id'];?>">ubah</a>
+            <a href="<?=BASEURL;?>/kas/ubah/<?=$kas['id'];?>" class="badge badge-success float-right  ml-2 ModalUbahKas" data-toggle="modal"  data-target="#modalKas" data-id="<?=$kas['id'];?>">ubah</a>
             <a href="<?=BASEURL;?>/kas/detail/<?=$kas['id'];?>" class="badge badge-primary float-right">detail</a>
             <a href="#" class="badge badge-secondary float-right mr-5">Rp. <?= number_format($kas['nominal']);?></a>
           </li>
@@ -65,7 +67,7 @@
 
           <!-- modal header -->
         <div class="modal-header">
-          <h5 class="modal-title" id="ModalTitle">Tambah data</h5>
+          <h5 class="modal-title" id="judulModalKas">Tambah info Kas</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -74,13 +76,15 @@
         <!-- modal body -->
         <div class="modal-body">
                 <form action="<?= BASEURL; ?>/kas/tambah" method="post">
+                
                 <input type="hidden" name="id" id="id">
+                
                 <div class="form-group">
                   <label for="jenis">Jenis</label>
                   <select class="form-control" id="jenis" name = "jenis">
-                    <option></option>
-                    <option>Kas Masuk</option>
-                    <option>Kas Keluar</option>
+                    <option>...</option>
+                    <option>Masuk</option>
+                    <option>Keluar</option>
                     <option>Lainnya</option>
       
                   </select>

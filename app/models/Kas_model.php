@@ -66,6 +66,12 @@ class Kas_model {
         return $this->db->single();
     }
 
+    public function getKasByJenis($jns){
+        $this->db->query('SELECT * FROM ' . $this->table . ' WHERE jenis=:jns');
+        $this->db->bind('jns', $jns);
+        return $this->db->resultSet();
+    }
+
     public function hapusDataKas($id)
     {
 
@@ -81,20 +87,20 @@ class Kas_model {
             
     }
 
-    public function ubahDataMahasiswa($data){
-        $query = "UPDATE mahasiswa
+    public function ubahKas($data){
+        $query = "UPDATE kas
         SET
-        nama = :nama,
-        NIM = :NIM,
-        email = :email,
-        jurusan = :jurusan
+        info = :info,
+        jenis = :jenis,
+        nominal = :nominal,
+        keterangan = :keterangan
         WHERE id = :id";
 
         $this->db->query($query);
-        $this->db->bind('nama', $data['nama']);
-        $this->db->bind('NIM', $data['NIM']);
-        $this->db->bind('email', $data['email']);
-        $this->db->bind('jurusan', $data['jurusan']);
+        $this->db->bind('info', $data['info']);
+        $this->db->bind('jenis', $data['jenis']);
+        $this->db->bind('nominal', $data['nominal']);
+        $this->db->bind('keterangan', $data['keterangan']);
         $this->db->bind('id', $data['id']);
 
 

@@ -86,6 +86,7 @@
                   <label for="exampleFormControlInput1">email</label>
                   <input type="email" class="form-control" id="email" name ="email">
                 </div>
+                
                 <div class="form-group">
                   <label for="jurusan">jurusan</label>
                   <select class="form-control" id="jurusan" name = "jurusan">
